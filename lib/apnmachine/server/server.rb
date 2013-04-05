@@ -29,7 +29,7 @@ module ApnMachine
 
       def start!
         EM.synchrony do
-          EM::Synchrony.add_periodic_timer(5) { @flog.flush if @flog }
+          EM::Synchrony.add_periodic_timer(3) { @flog.flush if @flog }
           Config.logger.info "Connecting to Apple Servers"
           @client.connect!
           @last_conn_time = Time.now.to_i
