@@ -3,8 +3,8 @@ source "http://rubygems.org"
 gem "em-synchrony"
 gem "daemons"
 gem 'yajl-ruby'
-gem "redis", ">= 2.2.0"
-gem "hiredis", ">= 0.3.1"
+gem "redis", ">= 3.0.2"
+gem "hiredis", ">= 0.4.5"
 gem "i18n"
 
 # Add dependencies to develop your gem here.
@@ -12,7 +12,7 @@ gem "i18n"
 group :development do
   gem "shoulda", ">= 0"
   gem "rdoc", "~> 3.12"
-  gem "bundler", "~> 1.0.0"
+  gem "bundler", "~> 1.2.4"
   gem "jeweler", "~> 1.8.3"
   gem 'simplecov', :require => false
 end
