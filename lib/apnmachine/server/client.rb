@@ -11,7 +11,7 @@ module ApnMachine
         raise "The path to your pem file is not set." unless @pem
         raise "The path to your pem file does not exist!" unless File.exist?(@pem)
         @key, @cert = @pem, @pem
-        @connection = EM.connect(apn_host, apn_port, ApnMachine::Server::ServerConnection, self)
+        @connection = EM.connect(@apn_host, @apn_port, ApnMachine::Server::ServerConnection, self)
       end
         
       def disconnect!
