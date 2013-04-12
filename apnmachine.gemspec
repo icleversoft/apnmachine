@@ -53,7 +53,7 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<i18n>, [">= 0"])
       s.add_development_dependency(%q<shoulda>, [">= 0"])
       s.add_development_dependency(%q<rdoc>, ["~> 3.12"])
-      s.add_dependency(%q<bundler>, ["~> 1.2.4"])
+      s.add_dependency(%q<bundler>, [">= 1.2.4"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.8.3"])
       s.add_development_dependency(%q<simplecov>, [">= 0"])
     else
@@ -65,7 +65,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<i18n>, [">= 0"])
       s.add_dependency(%q<shoulda>, [">= 0"])
       s.add_dependency(%q<rdoc>, ["~> 3.12"])
-      s.add_dependency(%q<bundler>, ["~> 1.2.4"])
+      s.add_dependency(%q<bundler>, [">= 1.2.4"])
       s.add_dependency(%q<jeweler>, ["~> 1.8.3"])
       s.add_dependency(%q<simplecov>, [">= 0"])
     end
@@ -78,7 +78,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<i18n>, [">= 0"])
     s.add_dependency(%q<shoulda>, [">= 0"])
     s.add_dependency(%q<rdoc>, ["~> 3.12"])
-    s.add_dependency(%q<bundler>, ["~> 1.2.4"])
+    s.add_dependency(%q<bundler>, [">= 1.2.4"])
     s.add_dependency(%q<jeweler>, ["~> 1.8.3"])
     s.add_dependency(%q<simplecov>, [">= 0"])
   end
