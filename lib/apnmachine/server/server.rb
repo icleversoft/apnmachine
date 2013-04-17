@@ -73,7 +73,7 @@ module ApnMachine
             rescue Exception => e
               Config.logger.error "Unable to handle: #{e}"
             end #end of begin
-
+            EM.add_periodic_timer(1){} #wait for 1 second before sending the next one
           end #end of loop
         end # synchrony
       end # def start!
