@@ -37,15 +37,15 @@ module ApnMachine
           Config.logger.info "Starting APN Server on Redis"
           loop do  
             notification = @redis.blpop("apnmachine.queue", 0)[1]
-            retries = 2
+            retries = 10
         
             begin
               #prepare notification
               #next if Notification.valid?(notification)
               notif_bin = Notification.to_bytes(notification)
         
-              #force deconnection/reconnection after 10 min
-              if (@last_conn_time + 1000) < Time.now.to_i || !@client.connected?
+              #force deconnection/reconnection after 5 minutes
+              if (@last_conn_time + 300) < Time.now.to_i || !@client.connected?
                 Config.logger.error 'Reconnecting connection to APN'
                 @client.disconnect!
                 @client.connect!
@@ -62,7 +62,7 @@ module ApnMachine
                 Config.logger.error "Connection to APN servers idle for too long. Trying to reconnect"
                 @client.disconnect!
                 @client.connect!
-                @last_conn_time = Time.now
+                @last_conn_time = Time.now.to_i
                 retries -= 1
                 retry
               else
