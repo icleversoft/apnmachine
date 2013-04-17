@@ -44,8 +44,8 @@ module ApnMachine
               #next if Notification.valid?(notification)
               notif_bin = Notification.to_bytes(notification)
         
-              #force deconnection/reconnection after 5 minutes
-              if (@last_conn_time + 300) < Time.now.to_i || !@client.connected?
+              #force deconnection/reconnection after 2 seconds
+              if (@last_conn_time + 2) < Time.now.to_i || !@client.connected?
                 Config.logger.error 'Reconnecting connection to APN'
                 @client.disconnect!
                 @client.connect!
@@ -73,7 +73,7 @@ module ApnMachine
             rescue Exception => e
               Config.logger.error "Unable to handle: #{e}"
             end #end of begin
-            EM.add_periodic_timer(1){} #wait for 1 second before sending the next one
+            EM.add_periodic_timer(2){} #wait for 1 second before sending the next one
           end #end of loop
         end # synchrony
       end # def start!
